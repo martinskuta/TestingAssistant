@@ -1,0 +1,24 @@
+<idea-plugin require-restart="true">
+    <id>testingassistant-rider</id>
+    <name>Testing Assistant</name>
+    <version>_PLACEHOLDER_</version>
+    <vendor email="martin.skuta@outlook.com">Martin Skuta</vendor>
+    <idea-version since-build="_PLACEHOLDER_" until-build="_PLACEHOLDER_"/>
+    <depends>com.intellij.modules.rider</depends>
+
+    <actions>
+        <action id="TestingAssistant.GotoTest" class="com.jetbrains.rider.plugins.testingassistant.GotoTestAction"
+                text="Go to test" description="TODO">
+            <keyboard-shortcut keymap="$default"
+                               first-keystroke="control G"
+                               second-keystroke="control T"/>
+        </action>
+    </actions>
+
+    <description>
+        <![CDATA[
+<p>Simple utility that helps to navigate between tests and tested code (Go to test action) and suggest renames to test methods and test files when tested code is renamed.</p>
+]]>
+    </description>
+
+</idea-plugin>

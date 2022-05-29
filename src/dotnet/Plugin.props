@@ -1,0 +1,18 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <SdkVersion>2022.1.1</SdkVersion>
+
+    <Title>TestingAssistant</Title>
+    <Description>Simple utility that helps to navigate between tests and tested code (Go to test action) and suggest renames to test methods and test files when tested code is renamed.</Description>
+
+    <Authors>Martin Skuta</Authors>
+    <Copyright>Copyright $([System.DateTime]::Now.Year) Maintainers of TestingAssistant</Copyright>
+    <PackageTags>resharper plugin</PackageTags>
+
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageIconUrl></PackageIconUrl>
+  </PropertyGroup>
+
+</Project>

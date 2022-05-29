@@ -1,0 +1,51 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <LanguageTargets>$(MSBuildToolsPath)\Microsoft.CSharp.targets</LanguageTargets>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>ReSharperPlugin.TestingAssistant</AssemblyName>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <DefineConstants>$(DefineConstants);RIDER</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Lifetimes" Version="2022.1.4" />
+    <PackageReference Include="JetBrains.RdFramework" Version="2022.1.4" />
+    <PackageReference Include="JetBrains.Rider.SDK" Version="2022.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>    
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+
+    <ThemedIconsXamlV3 Include="**\*-color.xaml">
+      <ThemeColumns>Color</ThemeColumns>
+      <RemoveBackgroundElement>True</RemoveBackgroundElement>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ThemedIconsXamlV3>
+    <ThemedIconsXamlV3 Include="**\*-graydark.xaml">
+      <ThemeColumns>GrayDark</ThemeColumns>
+      <RemoveBackgroundElement>True</RemoveBackgroundElement>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ThemedIconsXamlV3>
+  </ItemGroup>
+
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+
+</Project>

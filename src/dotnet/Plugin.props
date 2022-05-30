@@ -3,16 +3,16 @@
   <PropertyGroup>
     <SdkVersion>2022.1.1</SdkVersion>
 
-    <Title>TestingAssistant</Title>
-    <Description>Simple utility that helps to navigate between tests and tested code (Go to test action) and suggest renames to test methods and test files when tested code is renamed.</Description>
+    <Title>Testing Assistant</Title>
+    <Description>Testing assistant adds "Go to Test" and back action (Ctrl + G + T) and extends rename refactoring of R# to keep your test names and test method names up to date.</Description>
 
     <Authors>Martin Skuta</Authors>
-    <Copyright>Copyright $([System.DateTime]::Now.Year) Maintainers of TestingAssistant</Copyright>
-    <PackageTags>resharper plugin</PackageTags>
+    <Copyright>Copyright $([System.DateTime]::Now.Year) Maintainers of Testing Assistant</Copyright>
+    <PackageTags>testing assistant refactoring go to test rename</PackageTags>
 
-    <PackageProjectUrl></PackageProjectUrl>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageIconUrl></PackageIconUrl>
+    <PackageProjectUrl>https://github.com/martinskuta/TestingAssistant</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/martinskuta/TestingAssistant/blob/main/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://github.com/martinskuta/TestingAssistant/blob/main/assets/pluginIcon.png</PackageIconUrl>
   </PropertyGroup>
 
 </Project>

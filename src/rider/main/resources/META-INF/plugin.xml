@@ -17,7 +17,7 @@
 
     <description>
         <![CDATA[
-<p>Simple utility that helps to navigate between tests and tested code (Go to test action) and suggest renames to test methods and test files when tested code is renamed.</p>
+<p>Testing assistant adds "Go to Test" and back action (Ctrl + G + T) and extends rename refactoring of R# to keep your test names and test method names up to date.</p>
 ]]>
     </description>
 

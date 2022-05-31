@@ -37,7 +37,7 @@ namespace ReSharperPlugin.TestingAssistant.Navigation
             if (!_typeElement.IsValid())
                 return EmptyList<IOccurrence>.InstanceList;
 
-            var linkedTypes = RelatedTestsUtil.GetRelatedTypes(_typeElement);
+            var linkedTypes = RelatedTestsUtil.GetRelatedTypesIncludingSuperTypes(_typeElement);
             
             // if (linkedTypes.Count == 0) Suggest to create new tests file
 

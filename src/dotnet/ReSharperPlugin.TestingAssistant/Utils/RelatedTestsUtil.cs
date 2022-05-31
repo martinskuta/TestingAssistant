@@ -13,7 +13,7 @@ namespace ReSharperPlugin.TestingAssistant.Utils
 {
     public static class RelatedTestsUtil
     {
-        public static IReadOnlyCollection<ITypeElement> GetRelatedTypes(ITypeElement source)
+        public static IReadOnlyCollection<ITypeElement> GetRelatedTypesIncludingSuperTypes(ITypeElement source)
         {
             var sources = new[] { source }
                 .Concat(source.GetAllSuperTypes()
@@ -25,17 +25,16 @@ namespace ReSharperPlugin.TestingAssistant.Utils
 
             return linkedTypes;
         }
+        
+        public static IReadOnlyCollection<ITypeElement> GetRelatedTypes(ITypeElement source) => GetLinkedTypesInternal(source);
 
         private static IReadOnlyCollection<ITypeElement> GetLinkedTypesInternal(ITypeElement source)
         {
             if (!(source.Module is IProjectPsiModule psiModule)) return Array.Empty<ITypeElement>();
 
-            var settings = SettingsManager.Instance.GetSettings(source.GetSolution());
-            var testClassSuffixes = settings.TestClassSuffixes();
-
             var derivedNames = psiModule.Project.IsTestProject()
-                ? GetDerivedTestedClassNames(source, testClassSuffixes)
-                : GetDerivedTestClassNames(source, testClassSuffixes);
+                ? GetDerivedTestedClassNames(source)
+                : GetDerivedTestClassNames(source);
 
             var psiServices = source.GetPsiServices();
 
@@ -48,13 +47,15 @@ namespace ReSharperPlugin.TestingAssistant.Utils
                 .ToList();
         }
 
-        private static IReadOnlyCollection<string> GetDerivedTestClassNames(ITypeElement source,
-            IReadOnlyCollection<string> suffixes)
+        private static IReadOnlyCollection<string> GetDerivedTestClassNames(IDeclaredElement source)
         {
+            var settings = SettingsManager.Instance.GetSettings(source.GetSolution());
+            var testClassSuffixes = settings.TestClassSuffixes();
+            
             var shortName = source.ShortName;
             var names = new List<string>();
 
-            foreach (var suffix in suffixes)
+            foreach (var suffix in testClassSuffixes)
             {
                 names.Add(shortName + suffix);
                 names.Add(suffix + shortName);
@@ -63,13 +64,15 @@ namespace ReSharperPlugin.TestingAssistant.Utils
             return names;
         }
 
-        private static IReadOnlyCollection<string> GetDerivedTestedClassNames(ITypeElement source,
-            IReadOnlyCollection<string> suffixes)
+        private static IReadOnlyCollection<string> GetDerivedTestedClassNames(IDeclaredElement source)
         {
+            var settings = SettingsManager.Instance.GetSettings(source.GetSolution());
+            var testClassSuffixes = settings.TestClassSuffixes();
+            
             var shortName = source.ShortName;
             var names = new HashSet<string>();
 
-            foreach (var suffix in suffixes)
+            foreach (var suffix in testClassSuffixes)
             {
                 var trimEnd = shortName.TrimFromEnd(suffix);
                 var trimStart = shortName.TrimFromStart(suffix);

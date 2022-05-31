@@ -5,9 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## vNext
+## 0.5.221
 
 - Remove direct dependencies to JetBrains.* except SDK package (this was causing incompatibility with R# in VS 2022)
+- Now when renaming Class that has tests its related test classes will
+  be renamed too and also if renaming a TestClass it will suggest to
+  rename the tested class.
 
 ## 0.4.221
 

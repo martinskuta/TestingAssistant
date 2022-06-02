@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.6.221
+
+- Fix that Ctrl+G+T was not configured as default shortcut in R# (was working only in rider). Now R# users don't have to assign the keyboard shortcut manually.
+
 ## 0.5.221
 
 - Remove direct dependencies to JetBrains.* except SDK package (this was causing incompatibility with R# in VS 2022)

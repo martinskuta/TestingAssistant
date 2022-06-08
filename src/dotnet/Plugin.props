@@ -1,7 +1,7 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <SdkVersion>2022.2.0-eap02</SdkVersion>
+    <SdkVersion>2022.2.0-eap03</SdkVersion>
 
     <Title>Testing Assistant</Title>
     <Description>Testing assistant adds "Go to Test" and back action (Ctrl + G + T) and extends rename refactoring of R# to keep your test names and test method names up to date.</Description>

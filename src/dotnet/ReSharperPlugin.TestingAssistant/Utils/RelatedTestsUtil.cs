@@ -15,13 +15,16 @@ namespace ReSharperPlugin.TestingAssistant.Utils
     {
         public static IReadOnlyCollection<ITypeElement> GetRelatedTypesIncludingSuperTypes(ITypeElement source)
         {
-            var sources = new[] { source }
-                .Concat(source.GetAllSuperTypes()
-                    .Select(x => x.GetTypeElement())
-                    .WhereNotNull()
-                    .Where(x => !x.IsObjectClass()));
+            var baseTypesExceptObjectClass = source.GetAllSuperTypes()
+                .Select(x => x.GetTypeElement())
+                .WhereNotNull()
+                .Where(x => !x.IsObjectClass());
+            
+            var sourceTypesPlusContainingTypes = new[] { source }
+                .Concat(baseTypesExceptObjectClass)
+                .SelectMany(x => x.GetAllContainingTypes().Concat(x)).ToList();
 
-            var linkedTypes = sources.SelectMany(GetLinkedTypesInternal).ToList();
+            var linkedTypes = sourceTypesPlusContainingTypes.SelectMany(GetLinkedTypesInternal).ToList();
 
             return linkedTypes;
         }

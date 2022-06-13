@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Rider (Windows)" type="RunNativeExe" factoryName="Native Executable">
     <option name="EXE_PATH" value="$PROJECT_DIR$/../../Windows/System32/cmd.exe" />
-    <option name="PROGRAM_PARAMETERS" value="/c gradlew.bat :runIde -x compileKotlin -x compileDotNet" />
+    <option name="PROGRAM_PARAMETERS" value="/c gradlew.bat :runIde" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     <option name="PASS_PARENT_ENVS" value="1" />
     <envs>
@@ -10,7 +10,6 @@
     </envs>
     <option name="USE_EXTERNAL_CONSOLE" value="0" />
     <method v="2">
-      <option name="Build Solution" enabled="true" />
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="Rider – Frontend (Windows)" run_configuration_type="RunNativeExe" />
     </method>
   </configuration>

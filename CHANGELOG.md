@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.7.222-EAP4
+
+- Update SDK to 2022.2.0-EAP4
+- When navigating from inner classes the Goto Test (and back) navigation action will include also containing type related types.
+
+
 ## 0.7.221
 
 - When navigating from inner classes the Goto Test (and back) navigation action will include also containing type related types.

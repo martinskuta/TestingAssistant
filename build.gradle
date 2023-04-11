@@ -3,9 +3,9 @@ import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.6.21'
-    id 'org.jetbrains.intellij' version '1.10.1'     // https://github.com/JetBrains/gradle-intellij-plugin/releases
-    id 'com.jetbrains.rdgen' version '2022.3.0'    // https://www.myget.org/feed/rd-snapshots/package/maven/com.jetbrains.rd/rd-gen
+    id 'org.jetbrains.kotlin.jvm' version '1.8.20'
+    id 'org.jetbrains.intellij' version '1.13.3'     // https://github.com/JetBrains/gradle-intellij-plugin/releases
+    id 'com.jetbrains.rdgen' version '2023.2.0'    // https://www.myget.org/feed/rd-snapshots/package/maven/com.jetbrains.rd/rd-gen
 }
 
 ext {
@@ -21,7 +21,7 @@ repositories {
 }
 
 wrapper {
-    gradleVersion = '7.1'
+    gradleVersion = '8.0.2'
     distributionType = Wrapper.DistributionType.ALL
     distributionUrl = "https://cache-redirector.jetbrains.com/services.gradle.org/distributions/gradle-${gradleVersion}-all.zip"
 }
@@ -35,9 +35,12 @@ sourceSets {
         resources.srcDir 'src/rider/main/resources'
     }
 }
+compileJava {
+    sourceCompatibility = "17"
+}
 
 compileKotlin {
-    kotlinOptions { jvmTarget = "1.8" }
+    kotlinOptions { jvmTarget = "17" }
 }
 
 task setBuildTool {
@@ -116,7 +119,7 @@ intellij {
 
 runIde {
     // Match Rider's default heap size of 1.5Gb (default for runIde is 512Mb)
-    maxHeapSize = "1500m"
+    maxHeapSize = "4096m"
 
     // Rider's backend doesn't support dynamic plugins. It might be possible to work with auto-reload of the frontend
     // part of a plugin, but there are dangers about keeping plugins in sync

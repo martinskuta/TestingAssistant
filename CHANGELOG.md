@@ -5,15 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 0.7.231
+
+- Updated R# SDK to 2023.1.0
+
 ## 0.7.223
 
 - Updated R# SDK to 2022.3.0
 
-
 ## 0.7.222
 
 - Updated R# SDK to 2022.2.0
-- When navigating from inner classes the Goto Test (and back) navigation action will include also types related to containing type.
+- When navigating from inner classes the Goto Test (and back) navigation action will include also types related to
+  containing type.
 
 
 ## 0.7.221
